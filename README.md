@@ -39,3 +39,8 @@ docker run -p 9092:9092 -d kafka-kraft:3.3.1
 This took a little while to figure out, but using [this script](runit.sh) allows for the server to be accessed _remotely_. For example, on a Raspberry Pi. Note there still is **NO** persistence, backup, partitioning, etc. - it's just running and available.
 
 **STILL NOT A PRODUCTION IMAGE!!! SATISFACTION NOT GUARANTEED!!!**
+
+Clients connecting to this server will need to use the _ip address_ of the host to connect. (Note that _mDNS_ hostnames will not resolve inside the container.)
+
+## UI
+The [redpanda.sh](redpanda.sh) runs a nifty Kafak GUI (no manager/topic editing) on port **8080** that connects to this server on the same host.
