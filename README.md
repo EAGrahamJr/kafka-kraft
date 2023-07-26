@@ -38,7 +38,7 @@ docker run -p 9092:9092 -d kafka-kraft:3.5.1
 # :bangbang: Running on another host
 The **[runit](runit.sh)** script allows for the server to be accessed _remotely_ (sets up the single listener varables). Note there still is **NO** persistence, backup, partitioning, etc. - it's just running and available.
 
-:bangbang: : bomb: **STILL NOT A PRODUCTION IMAGE!!! SATISFACTION NOT GUARANTEED!!!** :boom: :sob:
+:bangbang: :bomb: **STILL NOT A PRODUCTION IMAGE!!! SATISFACTION NOT GUARANTEED!!!** :boom: :sob:
 
 Clients connecting to this server will need to use the _ip address_ of the host to connect. (Note that _mDNS_ hostnames will not resolve inside the container.)
 
