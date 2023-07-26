@@ -16,7 +16,7 @@ There's two different means of building, depending on circumstances or need. Che
 The [multibuild](multibuild) directory builds the image using a Docker [multi-stage](https://docs.docker.com/develop/develop-images/multistage-build/) build:
 
 ```shell
-docker build -t kafka-kraft:3.3.1 multibuild
+docker build -t kafka-kraft:3.5.1 multibuild
 ```
 
 ## Shell Style
@@ -32,13 +32,13 @@ The downloaded Kafka binary is left on the system.
 # Run
 
 ```
-docker run -p 9092:9092 -d kafka-kraft:3.3.1
+docker run -p 9092:9092 -d kafka-kraft:3.5.1
 ```
 
 # :bangbang: Running on another host
-This took a little while to figure out, but using [this script](runit.sh) allows for the server to be accessed _remotely_. For example, on a Raspberry Pi. Note there still is **NO** persistence, backup, partitioning, etc. - it's just running and available.
+The **[runit](runit.sh)** script allows for the server to be accessed _remotely_ (sets up the single listener varables). Note there still is **NO** persistence, backup, partitioning, etc. - it's just running and available.
 
-**STILL NOT A PRODUCTION IMAGE!!! SATISFACTION NOT GUARANTEED!!!**
+:bangbang: : bomb: **STILL NOT A PRODUCTION IMAGE!!! SATISFACTION NOT GUARANTEED!!!** :boom: :sob:
 
 Clients connecting to this server will need to use the _ip address_ of the host to connect. (Note that _mDNS_ hostnames will not resolve inside the container.)
 
