@@ -36,7 +36,9 @@ docker run -p 9092:9092 -d kafka-kraft:3.5.1
 ```
 
 # :bangbang: Running on another host
-The **[runit](runit.sh)** script allows for the server to be accessed _remotely_ (sets up the single listener varables). Note there still is **NO** persistence, backup, partitioning, etc. - it's just running and available.
+The **[runit](runit.sh)** script allows for the server to be accessed _remotely_ (sets up the single listener varables). Note that this uses the default server configuration (auto-create topics, etc.). If you wish to actually _store_ the data, then for directory `$DIR` add 
+
+>`-v $DIR:/tmp/kraft-combined-logs`
 
 :bangbang: :bomb: **STILL NOT A PRODUCTION IMAGE!!! SATISFACTION NOT GUARANTEED!!!** :boom: :sob:
 
