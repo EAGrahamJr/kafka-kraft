@@ -1,8 +1,4 @@
 #!/usr/bin/env sh
 TARGET=$(hostname -I | awk '{print $1}')
-
-docker run --detach --publish 9092:9092  --name kafka \
-  --env "KAFKA_LISTENERS=PLAINTEXT://:9192,CONTROLLER://:9093,OTHER://:9092" \
-  --env "KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092,OTHER://$TARGET:9092" \
-  --env "KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=OTHER:PLAINTEXT,CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL" \
-  kafka-kraft:3.5.1
+export TARGET
+docker compose up --detach

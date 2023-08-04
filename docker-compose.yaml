@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  kafka:
+    image: kafka-kraft:3.5.1
+    restart: always
+    environment:
+      - KAFKA_LISTENERS=PLAINTEXT://:9192,CONTROLLER://:9093,OTHER://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092,OTHER://${TARGET}:9092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=OTHER:PLAINTEXT,CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+#      - /opt/kafka/data:/tmp/kraft-combined-logs
+    ports:
+      - 9092:9092
+  redpanda:
+    image: docker.redpanda.com/vectorized/console:latest
+    restart: always
+    environment:
+      - KAFKA_BROKERS=${TARGET}:9092
+    ports:
+      - 8080:8080
