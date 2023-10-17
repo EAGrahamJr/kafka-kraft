@@ -12,11 +12,13 @@ For more information about the Kafka running in KRaft mode check out the [introd
 
 There's two different means of building, depending on circumstances or need. Check version numbers before building and update accordingly.
 
+**`KAFKA_VERSION=3.6.0`**
+
 ### Multi-Stage Docker
 The [multibuild](multibuild) directory builds the image using a Docker [multi-stage](https://docs.docker.com/develop/develop-images/multistage-build/) build:
 
 ```shell
-docker build -t kafka-kraft:3.5.1 multibuild
+docker build -t kafka-kraft:${KAFKA_VERSION} multibuild
 ```
 
 ### Shell Style
@@ -32,7 +34,7 @@ The downloaded Kafka binary is left on the system.
 ## Run
 
 ```
-docker run -p 9092:9092 -d kafka-kraft:3.5.1
+docker run -p 9092:9092 -d kafka-kraft:${KAFKA_VERSION}
 ```
 
 ## :bangbang: Running on another host
