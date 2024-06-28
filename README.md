@@ -12,7 +12,7 @@ For more information about the Kafka running in KRaft mode check out the [introd
 
 There's two different means of building, depending on circumstances or need. Check version numbers before building and update accordingly.
 
-**`KAFKA_VERSION=3.6.0`**
+**`KAFKA_VERSION=3.7.0`**
 
 ### Multi-Stage Docker
 The [multibuild](multibuild) directory builds the image using a Docker [multi-stage](https://docs.docker.com/develop/develop-images/multistage-build/) build:

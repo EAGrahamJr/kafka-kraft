@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-KAFKA_VERSION="3.6.0"
+KAFKA_VERSION="3.7.0"
 SCALA_VERSION="2.13"
 
 DL_PATH="/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz"

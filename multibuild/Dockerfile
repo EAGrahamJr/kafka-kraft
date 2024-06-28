@@ -1,5 +1,5 @@
 FROM eclipse-temurin:17-jre AS builder
-ENV KAFKA_VERSION=3.6.0
+ENV KAFKA_VERSION=3.7.0
 ENV SCALA_VERSION=2.13
 COPY install_kafka.sh /
 RUN /install_kafka.sh
